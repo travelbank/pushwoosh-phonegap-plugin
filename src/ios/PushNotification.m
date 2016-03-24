@@ -78,7 +78,7 @@
 	}
 
 	AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-	PushNotification *pushHandler = [delegate.viewController getCommandInstance:@"PushNotification"];
+	PushNotification *pushHandler = [delegate.mainVC.cordovaVC getCommandInstance:@"PushNotification"];
 	if (pushHandler.startPushData && !deviceReady) {
 		[self dispatchPush:pushHandler.startPushData];
 	}
@@ -235,7 +235,7 @@
 	if (onStart) {
 		//keep the start push
 		AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-		PushNotification *pushHandler = [delegate.viewController getCommandInstance:@"PushNotification"];
+		PushNotification *pushHandler = [delegate.mainVC.cordovaVC getCommandInstance:@"PushNotification"];
 		pushHandler.startPushData = pn;
 	}
 
@@ -358,7 +358,7 @@
 
 - (NSObject<PushNotificationDelegate> *)getPushwooshDelegate {
 	AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-	PushNotification *pushHandler = [delegate.viewController getCommandInstance:@"PushNotification"];
+	PushNotification *pushHandler = [delegate.mainVC.cordovaVC getCommandInstance:@"PushNotification"];
 	return pushHandler;
 }
 @end
